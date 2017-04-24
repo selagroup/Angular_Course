@@ -1,15 +1,17 @@
 <h1>Movie Catalog</h1>
 <section>
   <div class='details'>
-    <h3>Details</h3>
+    <h3>{{movie.title}} Details</h3>
     <div>
-      Id:
+      Id: {{movie.id}}
     </div>
     <div>
       <label >
-        Title: <input type='text' />
+        Title: <input type='text' [value]="movie.title"
+                      (keyup.enter)="movie.title=titleInput.value" #titleInput />
       </label>
     </div>
+    <button (click)="onSaveMovie(titleInput.value)" >Save</button>
 
   </div>
 </section>
