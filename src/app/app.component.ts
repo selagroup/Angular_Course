@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Movie} from "./models/movie.model";
+import {MOVIES} from "./mocks/movies.mock";
 
 @Component({
   selector:'app-root',
@@ -8,11 +9,12 @@ import {Movie} from "./models/movie.model";
 })
 export class AppComponent implements OnInit{
 
-  private movie: Movie;
+  private movies: Movie[];
+  private selectedMovie:Movie;
 
 
   constructor(){
-    this.movie = new Movie(3,'Toy Story',1995);
+    this.movies = MOVIES;
   }
 
   ngOnInit(){
@@ -20,7 +22,10 @@ export class AppComponent implements OnInit{
   }
 
   onSaveMovie(value){
-    this.movie.title=value;
+    this.selectedMovie.title=value;
+  }
+  onMovieSelected(_movie:Movie){
+    this.selectedMovie=_movie;
   }
 
 
