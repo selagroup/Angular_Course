@@ -1,3 +1,4 @@
 export class Movie {
-  constructor(public id,public title){}
+  constructor(public id:number = 0,
+              public title: string = ''){}
 }
