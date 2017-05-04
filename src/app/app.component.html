@@ -3,7 +3,8 @@
   <div class='details'>
     <h3>{{movie.title}} Details</h3>
     <div>
-      Id: {{movie.id}}
+      Id: {{movie.id}}<br/>
+      Year: {{movie.year}}
     </div>
     <div>
       <label >
@@ -11,6 +12,13 @@
                       (keyup.enter)="movie.title=titleInput.value" #titleInput />
       </label>
     </div>
+
+    <div>
+      <label >
+        Year: <input type='text' [(ngModel)]="movie.year" />
+      </label>
+    </div>
+
     <button (click)="onSaveMovie(titleInput.value)" >Save</button>
 
   </div>

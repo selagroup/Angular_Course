@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
 
 
   constructor(){
-    this.movie = new Movie(3,'Toy Story');
+    this.movie = new Movie(3,'Toy Story',1995);
   }
 
   ngOnInit(){
