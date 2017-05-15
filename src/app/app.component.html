@@ -2,36 +2,13 @@
 <section class="group">
   <h1>Movie Catalog</h1>
   <div class="list pull-left">
-    <ul>
-        <li class="movieItem group" [ngClass]="{selected:selectedMovie?.id===movie?.id}" *ngFor="let movie of movies" (click)="onMovieSelected(movie)">
-        <div>
-          <div class="imgContainer pull-left">
-            <img [src]="movie.poster" />
-          </div>
-          <div class="info pull-left">
-            <b>{{movie.title}}</b><br />
-            <span>Released  {{movie.year}}</span>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <app-movies-list [movies]="movies"
+                     (movieSelected)="onMovieSelected($event)"></app-movies-list>
 
   </div>
-  <div class="details pull-left" *ngIf="selectedMovie" >
-    <h3>{{selectedMovie.title}} Details</h3>
-    <div>
-      Id: {{selectedMovie.id}}
-    </div>
-    <div>
-      <label >
-        Title: <input type='text' [(ngModel)]="selectedMovie.title" />
-      </label>
-    </div>
-    <div>
-      <label >
-        Year: <input type='text' [(ngModel)]="selectedMovie.year" />
-      </label>
-    </div>
+  <div class="pull-left">
+    <app-movie-details [movie]="selectedMovie"></app-movie-details>
   </div>
+
 
 </section>
