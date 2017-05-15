@@ -2,12 +2,11 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
-import { MoviesListComponent } from './movies/movies-list/movies-list.component';
-import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
+import {MoviesModule} from "./movies/movies.module";
 
 @NgModule({
-  declarations:[AppComponent, MoviesListComponent, MovieDetailsComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations:[AppComponent],
+  imports: [BrowserModule,MoviesModule],
   bootstrap: [AppComponent]
 
 })
