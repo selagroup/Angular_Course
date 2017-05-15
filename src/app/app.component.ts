@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Movie} from "./models/movie.model";
 import {MOVIES} from "./mocks/movies.mock";
+import {MoviesService} from "./core/movies.service";
 
 @Component({
   selector:'app-root',
@@ -10,15 +11,16 @@ import {MOVIES} from "./mocks/movies.mock";
 export class AppComponent implements OnInit{
 
   private movies: Movie[];
-  private selectedMovie:Movie;
+  private selectedMovie: Movie;
 
 
-  constructor(){
-    this.movies = MOVIES;
+  constructor(private moviesService: MoviesService){
+
   }
 
   ngOnInit(){
     console.log('app init');
+    this.movies = this.moviesService.getMovies();
   }
 
   onSaveMovie(value){
