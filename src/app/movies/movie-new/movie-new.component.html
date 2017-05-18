@@ -1,0 +1,18 @@
+<div>
+  <label >
+    Title: <input type='text' [(ngModel)]="newMovie.title" />
+  </label>
+</div>
+<div>
+  <label >
+    Year: <input type='text' [(ngModel)]="newMovie.year" />
+  </label>
+</div>
+<div>
+  <label >
+    Poster Url: <input type='text' [(ngModel)]="newMovie.poster" />
+  </label>
+</div>
+<div>
+  <button (click)="onSubmit()" >Add Movie</button>
+</div>

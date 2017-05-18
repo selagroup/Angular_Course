@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
 
   private movies: Movie[];
   private selectedMovie: Movie;
+  private errorMessage:String;
 
 
   constructor(private moviesService: MoviesService, private logger: LoggerService){
@@ -20,15 +21,28 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.logger.log('app init');
-    this.movies = this.moviesService.getMovies();
+    this.moviesService.getMovies()
+      .subscribe(movies => {
+        this.movies = movies;
+      });
+
+
+
   }
 
   onSaveMovie(value){
     this.selectedMovie.title = value;
   }
   onMovieSelected(_movie: Movie){
-    this.selectedMovie= _movie;
+    this.selectedMovie = _movie;
   }
 
+  onNewMovie(_movie:Movie){
+    this.moviesService.create(_movie)
+      .subscribe(
+        movie=> this.movies.push(movie),
+        error=> this.errorMessage=error
+      )
+  }
 
 }

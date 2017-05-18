@@ -1,6 +1,9 @@
 
 <section class="group">
   <h1>Movie Catalog</h1>
+  <div>
+    <app-movie-new (onMovieAdded)="onNewMovie($event)" ></app-movie-new>
+  </div>
   <div class="list pull-left">
     <app-movies-list [movies]="movies"
                      (movieSelected)="onMovieSelected($event)"></app-movies-list>
