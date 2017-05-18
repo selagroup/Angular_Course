@@ -1,10 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Movie} from "../../models/movie.model";
+import {LoggerService} from "../../core/logger.service";
 
 @Component({
   selector: 'app-movies-list',
   templateUrl: './movies-list.component.html',
-  styleUrls: ['./movies-list.component.css']
+  styleUrls: ['./movies-list.component.css'],
+  providers:[LoggerService]
 })
 export class MoviesListComponent implements OnInit {
 
@@ -16,8 +18,8 @@ export class MoviesListComponent implements OnInit {
   @Output()
   private movieSelected: EventEmitter<Movie>;
 
-  constructor() {
-
+  constructor(private logger: LoggerService) {
+    this.logger.prefix = '&&';
     this.movieSelected = new EventEmitter<Movie>();
   }
 
@@ -26,6 +28,8 @@ export class MoviesListComponent implements OnInit {
     this.movieSelected.emit(_movie);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.logger.log('Movies list init...');
+  }
 
 }
