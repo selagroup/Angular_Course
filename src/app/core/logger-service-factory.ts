@@ -2,7 +2,7 @@ import {ConfigService} from "./config.service";
 import {LoggerService} from "./logger.service";
 import {Logger} from "./logger";
 
-export const loggerServiceFactory = (config: ConfigService): LoggerService =>{
+export function loggerServiceFactory(config: ConfigService): LoggerService{
 
   let prefix = config.getConfigValue('loggerPrefix');
 

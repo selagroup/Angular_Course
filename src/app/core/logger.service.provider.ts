@@ -1,6 +1,5 @@
 import {LoggerService} from "./logger.service";
 import {ConfigService} from "./config.service";
-import {Logger} from "./logger";
 import {loggerServiceFactory} from "./logger-service-factory";
 
 
