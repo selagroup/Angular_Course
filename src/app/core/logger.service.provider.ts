@@ -1,14 +1,8 @@
 import {LoggerService} from "./logger.service";
 import {ConfigService} from "./config.service";
 import {Logger} from "./logger";
+import {loggerServiceFactory} from "./logger-service-factory";
 
-const loggerServiceFactory = (config: ConfigService): LoggerService =>{
-
-  let prefix = config.getConfigValue('loggerPrefix');
-
-  return new Logger(prefix);
-
-};
 
 
 export let LoggerServiceProvider = {
