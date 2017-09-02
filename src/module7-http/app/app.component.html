@@ -1,0 +1,17 @@
+
+<section class="group">
+  <h1>Movie Catalog</h1>
+  <div>
+    <app-movie-new (onMovieAdded)="onNewMovie($event)" ></app-movie-new>
+  </div>
+  <div class="list pull-left">
+    <app-movies-list [movies]="movies"
+                     (movieSelected)="onMovieSelected($event)"></app-movies-list>
+
+  </div>
+  <div class="pull-left">
+    <app-movie-details [movie]="selectedMovie"></app-movie-details>
+  </div>
+
+
+</section>
