@@ -1,7 +1,7 @@
 <div class="details" *ngIf="movie" >
   <h3>{{movieEdit.title}} Details</h3>
   <div>
-    Id: {{movie.id}}
+    Id: {{movieEdit.id}}
   </div>
   <div>
     <label >
@@ -11,7 +11,7 @@
 
   <div>
     <label >
-      Year: <input type='text' [(ngModel)]="movie.year" (ngModelChange)="handleMovieChange($event)" />
+      Year: <input type='text' [(ngModel)]="movieEdit.year" (ngModelChange)="handleMovieChange($event)" />
     </label>
   </div>
   <button (click)="saveMovie()" >Save</button>

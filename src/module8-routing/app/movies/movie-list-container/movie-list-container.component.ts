@@ -40,12 +40,6 @@ export class MovieListContainerComponent implements OnInit {
     this.router.navigate(['/movies', _movie.id]);
   }
 
-  onNewMovie(_movie:Movie){
-    this.moviesService.create(_movie)
-      .subscribe(
-        movie=> this.movies.push(movie),
-        error=> this.errorMessage=error
-      )
-  }
+
 
 }

@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Movie} from "../../models/movie.model";
+import {MoviesService} from "../../core/movies.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-movie-new',
@@ -12,13 +14,17 @@ export class MovieNewComponent implements OnInit {
 
   @Output()
   private onMovieAdded: EventEmitter<Movie> = new EventEmitter<Movie>();
-  constructor() { }
+  constructor(private moviesService:MoviesService,private router:Router) { }
 
   ngOnInit() {
     this.newMovie=new Movie();
   }
 
   onSubmit(){
-    this.onMovieAdded.emit(this.newMovie);
+
+      this.moviesService.create(this.newMovie)
+        .subscribe(
+          movie => this.router.navigate(['movies', 'list']))
+
   }
 }

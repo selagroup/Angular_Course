@@ -8,6 +8,7 @@ import { MovieListContainerComponent } from './movie-list-container/movie-list-c
 import {MoviesRoutingModule} from "./movies-routing.module";
 import { MovieDetailsContainerComponent } from './movie-details-container/movie-details-container.component';
 import {CoreModule} from "../core/core.module";
+import {MoviesViewComponent} from "./movies-view/movies-view.component";
 
 @NgModule({
   imports: [
@@ -16,7 +17,14 @@ import {CoreModule} from "../core/core.module";
     MoviesRoutingModule,
     CoreModule
   ],
-  declarations: [MovieListContainerComponent, MovieDetailsComponent, MoviesListComponent, MovieNewComponent, MovieListContainerComponent, MovieDetailsContainerComponent],
+  declarations: [MovieListContainerComponent,
+    MovieDetailsComponent,
+    MoviesListComponent,
+    MovieNewComponent,
+    MovieListContainerComponent,
+    MovieDetailsContainerComponent,
+    MoviesViewComponent
+  ],
   exports: [MovieListContainerComponent]
 })
 export class MoviesModule { }

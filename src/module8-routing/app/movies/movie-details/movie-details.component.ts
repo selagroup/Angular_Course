@@ -40,7 +40,7 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
   }
 
   saveMovie(){
-    this.onMovieUpdated.emit(this.movie);
+    this.onMovieUpdated.emit(this.movieEdit);
   }
 
 

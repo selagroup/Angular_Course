@@ -41,7 +41,7 @@ export class MovieDetailsContainerComponent implements OnInit {
 
   saveMovie(movie: Movie){
     this.movieDraft= null;
-    this.movieService.saveMovie(this.selectedMovie)
+    this.movieService.saveMovie(movie)
       .subscribe(() => this.goToList());
   }
 
