@@ -1,0 +1,16 @@
+{
+  "name": "typescript_and_ecma2015",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start_es2015",
+    "start_es2015": "live-server --port=3000 --open=es2015/specrunner.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^2.0.34"
+  }
+}
