@@ -5,6 +5,7 @@ import {MovieDetailsContainerComponent} from "./movie-details-container/movie-de
 import {MoviesCanDeactivateGuard} from "../core/movies-can-deactivate-guard.service";
 import {MoviesViewComponent} from "./movies-view/movies-view.component";
 import {MovieNewComponent} from "./movie-new/movie-new.component";
+import {MovieNewReactiveComponent} from "./movie-new-reactive/movie-new-reactive.component";
 
 
 
@@ -19,7 +20,7 @@ const routes:Routes =[
       },
       {
         path:'new',
-        component:MovieNewComponent
+        component:MovieNewReactiveComponent //MovieNewComponent
       }
     ]
   },

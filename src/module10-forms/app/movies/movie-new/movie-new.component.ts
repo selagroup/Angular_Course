@@ -20,11 +20,10 @@ export class MovieNewComponent implements OnInit {
     this.newMovie=new Movie();
   }
 
-  onSubmit(){
-
-      this.moviesService.create(this.newMovie)
+  onSubmit(form){
+    this.moviesService.create(form.value)
         .subscribe(
-          movie => this.router.navigate(['movies', 'list']))
+          movie => this.router.navigate(['movies']));
 
   }
 }

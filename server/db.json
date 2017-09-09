@@ -69,7 +69,7 @@
     {
       "id": 70,
       "title": "From Dusk Till Dawn",
-      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZjk3YmZhMDAtOWUzMS00Yj…I1NGZjMDA2ZTk0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZjk3YmZhMDAtOWUzMS00YjE5LTkxNzAtY2I1NGZjMDA2ZTk0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,665,1000_AL_.jpg",
       "year": 1996,
       "releaseDate": "1995-11-21T22:00:00.000Z",
       "genres": [
@@ -141,6 +141,12 @@
       "poster": "https://upload.wikimedia.org/wikipedia/en/3/34/Cars_2006.jpg",
       "releaseDate": null,
       "genres": []
+    },
+    {
+      "title": "Moana",
+      "year": "2017",
+      "poster": "http://t3.gstatic.com/images?q=tbn:ANd9GcTJOaSVrzlgewVqmUgUz4W5ty2KUeHH6s-aYSIr_Qw8v2EBrtCS",
+      "id": 4787
     }
   ]
 }

@@ -256,7 +256,7 @@
     },
     {
       "name":"module10",
-      "root": "src/module9-forms",
+      "root": "src/module10-forms",
       "outDir": "dist",
       "assets": [
         "assets",

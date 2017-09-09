@@ -1,0 +1,36 @@
+<form [formGroup]="newMovieForm" (ngSubmit)="onSubmit()" novalidate="1" >
+<div>
+  <label >
+    Title: <input type='text'
+                  formControlName="title"
+  />
+  </label>
+  <div *ngIf="title.invalid && (title.dirty && title.touched)"  class="error">
+    <div *ngIf="title.errors?.required" >This field is required</div>
+    <div *ngIf="title.errors?.minlength" >This field has a minimum of {{title.errors.minlength.requiredLength}} </div>
+  </div>
+</div>
+<div>
+  <label >
+    Year: <input type='text'
+                 formControlName="year"
+  />
+  </label>
+  <div class="error" *ngIf="year?.dirty && !year.valid">
+    <div *ngIf="year.errors?.required">This Field is required</div>
+    <div *ngIf="year.errors?.pattern">This Field contains numbers only</div>
+  </div>
+</div>
+<div>
+  <label >
+    Poster Url: <input type='text'
+                       formControlName="poster"
+
+    />
+  </label>
+</div>
+<div>
+  <button type="submit" >Add Movie</button>
+</div>
+
+</form>

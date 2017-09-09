@@ -1,18 +1,43 @@
+<form #movieFormRef="ngForm" (ngSubmit)="onSubmit(movieFormRef)" novalidate="1" >
 <div>
   <label >
-    Title: <input type='text' [(ngModel)]="newMovie.title" />
+    Title: <input type='text'
+                  [(ngModel)]="newMovie.title"
+                  #titleRef = "ngModel"
+                  name="title"
+                  required
+                  minlength="2"
+  />
+  </label>
+  <div *ngIf="titleRef.dirty && !titleRef.valid"  class="error">
+    <div *ngIf="titleRef.errors?.required" >This field is required</div>
+    <div *ngIf="titleRef.errors?.minlength" >This field has a minimum of {{titleRef.errors.minlength.requiredLength}} </div>
+  </div>
+</div>
+<div>
+  <label >
+    Year: <input type='text'
+                 [(ngModel)]="newMovie.year"
+                 #yearRef = "ngModel"
+                 name="year"
+                 required
+                 pattern="^\d+$"
+  />
+  </label>
+  <div class="error" *ngIf="yearRef.dirty && !yearRef.valid">
+    <div *ngIf="yearRef.errors?.required">This Field is required</div>
+    <div *ngIf="yearRef.errors?.pattern">This Field contains numbers only</div>
+  </div>
+</div>
+<div>
+  <label >
+    Poster Url: <input type='text'
+                       [(ngModel)]="newMovie.poster"
+                       name="poster"
+    />
   </label>
 </div>
 <div>
-  <label >
-    Year: <input type='text' [(ngModel)]="newMovie.year" />
-  </label>
+  <button type="submit" >Add Movie</button>
 </div>
-<div>
-  <label >
-    Poster Url: <input type='text' [(ngModel)]="newMovie.poster" />
-  </label>
-</div>
-<div>
-  <button (click)="onSubmit()" >Add Movie</button>
-</div>
+</form>
