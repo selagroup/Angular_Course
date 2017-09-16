@@ -5,13 +5,16 @@ import {MoviesModule} from "./movies/movies.module";
 import {CoreModule} from "./core/core.module";
 import {LoggerServiceProvider} from "./core/logger.service.provider";
 import {AppRoutingModule} from "./app-routing.module";
-import { ModalDialogComponent } from '../../module11-advanced/app/shared/src/master/app/shared/modal-dialog/modal-dialog.component';
 
 @NgModule({
-  declarations:[AppComponent, ModalDialogComponent],
-  imports: [BrowserModule, CoreModule, MoviesModule,AppRoutingModule],
+  declarations:[AppComponent],
+  imports: [BrowserModule,
+    CoreModule,
+    MoviesModule,
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent],
   providers:[LoggerServiceProvider]
 
 })
-export  class AppModule{}
+export class AppModule{}

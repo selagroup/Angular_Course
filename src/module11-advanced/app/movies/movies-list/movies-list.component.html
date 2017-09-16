@@ -1,0 +1,16 @@
+<ul class="list">
+  <li class="movieItem group" [ngClass]="{selected:selectedMovie?.id===movie?.id}"
+      *ngFor="let movie of movies | sortByYear"
+      (click)="onMovieSelected(movie)">
+    <div>
+      <div class="imgContainer pull-left">
+        <img [src]="movie.poster" />
+      </div>
+      <div class="info pull-left">
+        <b>{{movie.title | uppercase}}</b><br />
+        <span>Released  {{movie.year | yearsAgo}}</span><br/>
+        <span>Release Date : {{movie.releaseDate | date:'longDate' }}</span>
+      </div>
+    </div>
+  </li>
+</ul>
