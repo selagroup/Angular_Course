@@ -4,7 +4,7 @@
       (click)="onMovieSelected(movie)">
     <div>
       <div class="imgContainer pull-left">
-        <img [src]="movie.poster" />
+        <img [src]="movie.poster" [appDefaultImage]="'http://www.reelviews.net/resources/img/default_poster.jpg'" />
       </div>
       <div class="info pull-left">
         <b>{{movie.title | uppercase}}</b><br />
