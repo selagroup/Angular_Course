@@ -11,7 +11,14 @@
 
   <div>
     <label >
-      Year: <input type='text' [(ngModel)]="movieEdit.year" (ngModelChange)="handleMovieChange($event)" />
+      Year: <input [(ngModel)]="movieEdit.year" (ngModelChange)="handleMovieChange($event)" />
+    </label>
+  </div>
+  <div>
+    <label >
+      Release Date: <input type='date'
+                           [value]="releaseDate"
+                           (ngModelChange)="handleMovieChange($event)" />
     </label>
   </div>
   <button (click)="saveMovie()" >Save</button>

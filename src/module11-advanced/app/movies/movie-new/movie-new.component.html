@@ -31,7 +31,7 @@
 </div>
 <div>
   <label >
-    Poster Url: <a (click)="openModal()">{{ getPosterURL()    }} </a>
+    Poster Url: <a (click)="modal.setModal(true)">{{ getPosterURL()   }} </a>
 
   </label>
 </div>
@@ -40,7 +40,8 @@
 </div>
 
 </form>
-<app-modal-dialog [showModal]="doShowModal"
+<app-modal-dialog #modal
+                  [showModal]="doShowModal"
                   [title]="'Edit Poster'"
                   (modalCancelClick)="cancelClicked()"
                   (modalOkClick)="updatePoster()"
@@ -49,6 +50,9 @@
     <img class="previewImage" #preview  [src]="" />
   </div>
   <div>
-    <input type="text" #posterRef placeholder="Enter Poster Url" (input)="preview.src=$event.target.value"  />
+    <input type="text"
+           #posterRef
+           placeholder="Enter Poster Url"
+           (input)="preview.src=$event.target.value"  />
   </div>
 </app-modal-dialog>

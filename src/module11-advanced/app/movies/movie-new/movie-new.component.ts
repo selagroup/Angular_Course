@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 import {Movie} from "../../models/movie.model";
 import {MoviesService} from "../../core/movies.service";
 import {Router} from "@angular/router";
+import {ModalDialogComponent} from "../../shared/modal-dialog/modal-dialog.component";
 
 @Component({
   selector: 'app-movie-new',
@@ -14,6 +15,9 @@ export class MovieNewComponent implements OnInit {
 
   @ViewChild('posterRef')
   private preview: ElementRef;
+
+  @ViewChild(ModalDialogComponent)
+  private modal: ModalDialogComponent;
 
   @Output()
   private onMovieAdded: EventEmitter<Movie> = new EventEmitter<Movie>();
@@ -32,18 +36,18 @@ export class MovieNewComponent implements OnInit {
 
   }
   openModal(){
-    this.doShowModal= true;
+    // this.doShowModal= true;
   }
 
   cancelClicked(){
-    this.doShowModal = false;
+    this.modal.setModal(false);
   }
   getPosterURL(){
     return (this.newMovie && this.newMovie.poster) ? this.newMovie.poster : 'Add';
   }
   updatePoster() {
     this.newMovie.poster = this.preview.nativeElement.value;
-    this.doShowModal = false;
+    this.modal.setModal(false);
   }
 
 

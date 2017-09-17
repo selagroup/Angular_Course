@@ -9,6 +9,7 @@ import {MoviesDb} from "../data/movies.data";
 import {TimingInterceptor} from "./timing.interceptor";
 import {MoviesCanDeactivateGuard} from "./movies-can-deactivate-guard.service";
 import {ConfirmService} from "./confirm.service";
+import {FavoritesService} from "./favorites.service";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {ConfirmService} from "./confirm.service";
       useClass: TimingInterceptor,
       multi: true
     },
-    MoviesCanDeactivateGuard
+    MoviesCanDeactivateGuard,
+    FavoritesService
   ],
   declarations: []
 })

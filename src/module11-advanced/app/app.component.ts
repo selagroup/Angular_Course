@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Movie} from "./models/movie.model";
 import {MoviesService} from "./core/movies.service";
 import {LoggerService} from "./core/logger.service";
+import {FavoritesService} from "./core/favorites.service";
 
 @Component({
   selector:'app-root',
@@ -13,9 +14,10 @@ export class AppComponent implements OnInit{
   private movies: Movie[];
   private selectedMovie: Movie;
   private errorMessage:String;
+  private favoritesCount:number
 
 
-  constructor(private moviesService: MoviesService, private logger: LoggerService){
+  constructor(private moviesService: MoviesService, private logger: LoggerService,private favorites: FavoritesService){
 
   }
 
@@ -25,21 +27,14 @@ export class AppComponent implements OnInit{
       .subscribe(movies => {
         this.movies = movies;
       });
+
+    this.favorites.getFavoritesStream()
+      .subscribe((data)=>{
+        this.favoritesCount = data.length;
+      })
+
   }
 
-  onSaveMovie(value){
-    this.selectedMovie.title = value;
-  }
-  onMovieSelected(_movie: Movie){
-    this.selectedMovie = _movie;
-  }
 
-  onNewMovie(_movie:Movie){
-    this.moviesService.create(_movie)
-      .subscribe(
-        movie=> this.movies.push(movie),
-        error=> this.errorMessage=error
-      )
-  }
 
 }

@@ -36,12 +36,35 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
 
     if(changes.hasOwnProperty('movie')) {
       this.movieEdit = Object.assign({},this.movie);
+      if(this.movie)
+        this.releaseDate = this.dateToInputString(this.movie.releaseDate);
     }
+
   }
 
   saveMovie(){
     this.onMovieUpdated.emit(this.movieEdit);
   }
+
+  private releaseDate:string;
+
+
+  @Input()
+  set ReleaseDate(value: Date | string) {
+
+    this.releaseDate = this.dateToInputString(value);
+  }
+
+  dateToInputString(value : Date | string){
+
+   if(typeof value === 'string'){
+      value = new Date(value);
+    }
+    return value ? `${value.getFullYear()}-${value.getMonth()+1}-${value.getDate()}` : '';
+
+  }
+
+
 
 
 

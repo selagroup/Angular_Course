@@ -36,4 +36,8 @@ export class ModalDialogComponent implements OnInit {
     this.showModal=false;
   }
 
+  setModal(show:boolean){
+    this.showModal = show;
+  }
+
 }

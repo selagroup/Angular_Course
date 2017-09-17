@@ -4,6 +4,8 @@ import {MoviesService} from "../../core/movies.service";
 import {LoggerService} from "../../core/logger.service";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
+import {FavoritesService} from "../../core/favorites.service";
+import {MovieListItem} from "../../models/movieListItem.model";
 
 @Component({
   selector: 'app-movie-list-container',
@@ -13,20 +15,28 @@ import {Observable} from "rxjs";
 export class MovieListContainerComponent implements OnInit {
 
   private movies: Movie[];
-  private movies$:Observable<Movie[]>;
+  private movies$:Observable<MovieListItem[]>;
   private selectedMovie: Movie;
   private errorMessage: string;
 
 
   constructor(private moviesService: MoviesService,
               private logger: LoggerService,
-              private router: Router){
+              private router: Router,
+              private favorites: FavoritesService){
 
   }
 
   ngOnInit(){
     this.logger.log('app init');
-    this.movies$=this.moviesService.getMovies();
+    this.movies$=Observable.combineLatest<MovieListItem[]>(
+        this.moviesService.getMovies(),
+        this.favorites.getFavoritesStream(),
+       (movies:Movie[],favorites: Movie[])=>{
+          return  movies.map((item)=>{
+            return Object.assign({},item,{isFavorite: favorites.findIndex(f=> f.id === item.id)>=0 })
+          });
+      });
   }
 
   onSaveMovie(value){
@@ -34,6 +44,14 @@ export class MovieListContainerComponent implements OnInit {
   }
   onMovieSelected(_movie: Movie){
     this.router.navigate(['/movies', _movie.id]);
+  }
+
+  toggleFavorite(movie: MovieListItem){
+    if(!movie.isFavorite){
+      return this.favorites.AddFavorite(movie);
+    }
+
+    this.favorites.removeFavorite(movie);
   }
 
 

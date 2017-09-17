@@ -11,6 +11,9 @@
         <span>Released  {{movie.year | yearsAgo}}</span><br/>
         <span>Release Date : {{movie.releaseDate | date:'longDate' }}</span>
       </div>
+      <div class="pull-right">
+         <button (click)="favoriteClick($event,movie)">{{movie.isFavorite ? 'Remove' : 'Add'  }} favorite</button>
+      </div>
     </div>
   </li>
 </ul>

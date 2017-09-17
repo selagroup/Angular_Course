@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Movie} from "../../models/movie.model";
 import {LoggerService} from "../../core/logger.service";
+import {MovieListItem} from "../../models/movieListItem.model";
 
 @Component({
   selector: 'app-movies-list',
@@ -11,16 +12,20 @@ import {LoggerService} from "../../core/logger.service";
 export class MoviesListComponent implements OnInit {
 
   @Input()
-  private movies: Movie[];
+  private movies: MovieListItem[];
 
   private selectedMovie: Movie;
 
   @Output()
   private movieSelected: EventEmitter<Movie>;
 
+  @Output()
+  private toggleFavorite: EventEmitter<Movie>;
+
   constructor(private logger: LoggerService) {
     this.logger.prefix = '&&';
     this.movieSelected = new EventEmitter<Movie>();
+    this.toggleFavorite = new EventEmitter<Movie>();
   }
 
   onMovieSelected(_movie: Movie) {
@@ -38,8 +43,13 @@ export class MoviesListComponent implements OnInit {
 
     //when a pipe is pure for sorting array we need to provide a new array
     setTimeout(()=>{
-      this.movies=[...this.movies,new Movie(Math.random(),'Mivtza Savta',1999,'https://images-na.ssl-images-amazon.com/images/M/MV5BZTRiMjk0MjYtOGUxMy00MjE3LWI2ZWQtZTNiYWRmNTU0OTEwXkEyXkFqcGdeQXVyMjMyMzI4MzY@._V1_.jpg')];
+      this.movies=[...this.movies,new MovieListItem(Math.random(),'Mivtza Savta',1999,'https://images-na.ssl-images-amazon.com/images/M/MV5BZTRiMjk0MjYtOGUxMy00MjE3LWI2ZWQtZTNiYWRmNTU0OTEwXkEyXkFqcGdeQXVyMjMyMzI4MzY@._V1_.jpg')];
     },3000);
+  }
+
+  favoriteClick(event,movie){
+    this.toggleFavorite.emit(movie);
+    event.stopPropagation();
   }
 
 }
