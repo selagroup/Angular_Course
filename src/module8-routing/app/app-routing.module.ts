@@ -5,6 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
   {path:'', redirectTo:'movies' , pathMatch:'full'},
+  {path:'lazy',loadChildren:'app/lazyloaded/lazyloaded.module#LazyloadedModule'}
 ];
 
 @NgModule({
