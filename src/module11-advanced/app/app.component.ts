@@ -11,10 +11,10 @@ import {FavoritesService} from "./core/favorites.service";
 })
 export class AppComponent implements OnInit{
 
-  private movies: Movie[];
-  private selectedMovie: Movie;
-  private errorMessage:String;
-  private favoritesCount:number
+  movies: Movie[];
+  selectedMovie: Movie;
+  errorMessage:String;
+  favoritesCount:number;
 
 
   constructor(private moviesService: MoviesService, private logger: LoggerService,private favorites: FavoritesService){

@@ -1,0 +1,12 @@
+<div  class="modal-wrapper" [style.display]="showModal ? '': 'none'" >
+    <div class="modal-box">
+      <h2 class="modal-header">{{title}}</h2>
+      <ng-content>
+
+      </ng-content>
+      <div class='modal-buttons'>
+        <button (click)="onClick(true)" id='confirm-ok'>OK</button>
+        <button (click)="onClick(false)" type='button' id='confirm-cancel'>Cancel</button>
+      </div>
+    </div>
+</div>

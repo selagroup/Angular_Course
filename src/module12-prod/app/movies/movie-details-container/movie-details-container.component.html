@@ -1,0 +1,4 @@
+<app-movie-details [movie]="selectedMovie"
+                   (onMovieUpdated)="saveMovie($event)"
+                    (onMovieChanged)="movieChanged($event)"
+                   [ReleaseDate]="selectedMovie?.releaseDate"  ></app-movie-details>

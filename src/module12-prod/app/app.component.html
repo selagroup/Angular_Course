@@ -1,0 +1,22 @@
+<section class="group">
+  <div class="pull-left">
+  <router-outlet></router-outlet>
+  </div>
+  <div class="favorites pull-right">
+      Favorites: {{favoritesCount}}
+  </div>
+  <div>
+    {{htmlSnippet}}
+    <div [innerHtml]="htmlSnippet"></div>
+  </div>
+
+  <div>
+
+    <h4>Resource URL:</h4>
+    <p>Showing: {{dangerousVideoUrl}}</p>
+    <p>Trusted:</p>
+    <iframe width="560" height="315" [src]="trustedVideoUrl"
+            frameborder="0"
+            allowfullscreen></iframe>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+.error{
+  color:red;
+  font-weight: bold;
+  padding: 5px;
+
+}
+input.ng-invalid.ng-dirty{
+  border: solid 2px red;
+}

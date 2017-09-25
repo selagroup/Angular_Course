@@ -1,0 +1,25 @@
+<div class="details" *ngIf="movie" >
+  <h3>{{movieEdit.title}} Details</h3>
+  <div>
+    Id: {{movieEdit.id}}
+  </div>
+  <div>
+    <label >
+      Title: <input type='text' [(ngModel)]="movieEdit.title" (ngModelChange)="handleMovieChange($event)" />
+    </label>
+  </div>
+
+  <div>
+    <label >
+      Year: <input [(ngModel)]="movieEdit.year" (ngModelChange)="handleMovieChange($event)" />
+    </label>
+  </div>
+  <div>
+    <label >
+      Release Date: <input type='date'
+                           [value]="releaseDate"
+                           (ngModelChange)="handleMovieChange($event)" />
+    </label>
+  </div>
+  <button (click)="saveMovie()" >Save</button>
+</div>

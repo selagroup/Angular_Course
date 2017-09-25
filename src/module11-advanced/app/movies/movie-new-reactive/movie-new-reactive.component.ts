@@ -14,8 +14,6 @@ export class MovieNewReactiveComponent implements OnInit {
   private newMovie:Movie;
   private newMovieForm:FormGroup;
 
-  @ViewChild("#")
-
   @Output()
   private onMovieAdded: EventEmitter<Movie> = new EventEmitter<Movie>();
   constructor(private moviesService:MoviesService,

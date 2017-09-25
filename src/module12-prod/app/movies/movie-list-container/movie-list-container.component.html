@@ -1,0 +1,8 @@
+  <div class="list pull-left">
+    <app-movies-list [movies]="movies$ | async"
+                     (toggleFavorite)="toggleFavorite($event)"
+                     (movieSelected)="onMovieSelected($event)"></app-movies-list>
+
+  </div>
+
+

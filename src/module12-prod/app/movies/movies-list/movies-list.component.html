@@ -1,0 +1,19 @@
+<ul class="list">
+  <li class="movieItem group" [ngClass]="{selected:selectedMovie?.id===movie?.id}"
+      *ngFor="let movie of movies | sortByYear"
+      (click)="onMovieSelected(movie)">
+    <div>
+      <div class="imgContainer pull-left">
+        <img [src]="movie.poster" [appDefaultImage]="'http://www.reelviews.net/resources/img/default_poster.jpg'" />
+      </div>
+      <div class="info pull-left">
+        <b>{{movie.title | uppercase}}</b><br />
+        <span>Released  {{movie.year | yearsAgo}}</span><br/>
+        <span>Release Date : {{movie.releaseDate | date:'longDate' }}</span>
+      </div>
+      <div class="pull-right">
+         <button (click)="favoriteClick($event,movie)">{{movie.isFavorite ? 'Remove' : 'Add'  }} favorite</button>
+      </div>
+    </div>
+  </li>
+</ul>
