@@ -1,4 +1,4 @@
-zsDDimport { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Movie} from "../../models/movie.model";
 import {MoviesService} from "../../core/movies.service";
 import {LoggerService} from "../../core/logger.service";
