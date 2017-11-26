@@ -7,7 +7,7 @@ import {MovieDetailsContainerComponent} from "../movies/movie-details-container/
 @Injectable()
 export class MoviesCanDeactivateGuard implements CanDeactivate<MovieDetailsContainerComponent> {
 
-    constructor(private confirmDialog:ConfirmService){
+    constructor(private confirmDialog: ConfirmService){
 
     }
     canDeactivate(component: MovieDetailsContainerComponent): Observable<boolean> | Promise<boolean> | boolean {

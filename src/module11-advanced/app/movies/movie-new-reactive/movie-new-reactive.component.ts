@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class MovieNewReactiveComponent implements OnInit {
 
   private newMovie:Movie;
-  private newMovieForm:FormGroup;
+  newMovieForm:FormGroup;
 
   @Output()
   private onMovieAdded: EventEmitter<Movie> = new EventEmitter<Movie>();
