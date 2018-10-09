@@ -26,6 +26,9 @@ export class MovieDetailsContainerComponent implements OnInit {
   constructor(private movieService: MoviesService,
               private route: ActivatedRoute,
               private router: Router) {
+                this.route.params.subscribe((params) => {
+                  console.log('this.route.params',params);
+                })
 
   }
 

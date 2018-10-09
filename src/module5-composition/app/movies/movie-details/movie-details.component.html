@@ -1,16 +1,17 @@
-<div class="details" *ngIf="movie" >
-  <h3>{{movie.title}} Details</h3>
+<div class="details" *ngIf="movie2" >
+  <div> {{hello}} </div>
+  <h3>{{movie2.title}} Details</h3>
   <div>
-    Id: {{movie.id}}
+    Id: {{movie2.id}}
   </div>
   <div>
     <label >
-      Title: <input type='text' [(ngModel)]="movie.title" />
+      Title: <input type='text' [(ngModel)]="movie2.title" />
     </label>
   </div>
   <div>
     <label >
-      Year: <input type='text' [(ngModel)]="movie.year" />
+      Year: <input type='text' [(ngModel)]="movie2.year" />
     </label>
   </div>
 </div>

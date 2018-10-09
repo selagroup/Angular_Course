@@ -5,7 +5,9 @@ export class LoggerService {
 
   public prefix:string;
 
-  constructor() {}
+  constructor() {
+    console.log('LoggerService');
+  }
 
   log(msg){
     console.log(`${this.prefix} => ${msg}`);

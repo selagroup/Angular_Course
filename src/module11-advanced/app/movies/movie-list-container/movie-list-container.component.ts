@@ -3,7 +3,7 @@ import {Movie} from "../../models/movie.model";
 import {MoviesService} from "../../core/movies.service";
 import {LoggerService} from "../../core/logger.service";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs";
+import {Observable, combineLatest} from "rxjs";
 import {FavoritesService} from "../../core/favorites.service";
 import {MovieListItem} from "../../models/movieListItem.model";
 
@@ -29,7 +29,7 @@ export class MovieListContainerComponent implements OnInit {
 
   ngOnInit(){
     this.logger.log('app init');
-    this.movies$=Observable.combineLatest<MovieListItem[]>(
+    this.movies$=combineLatest<MovieListItem[]>(
         this.moviesService.getMovies(),
         this.favorites.getFavoritesStream(),
        (movies:Movie[],favorites: Movie[])=>{

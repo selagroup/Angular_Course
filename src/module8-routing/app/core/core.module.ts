@@ -7,6 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TimingInterceptor} from "./timing.interceptor";
 import {MoviesCanDeactivateGuard} from "./movies-can-deactivate-guard.service";
 import {ConfirmService} from "./confirm.service";
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import {ConfirmService} from "./confirm.service";
   ],
   exports:[HttpClientModule],
   providers:[
-    MoviesService, LoggerService, ConfigService,ConfirmService,
+    MoviesService, LoggerService, ConfigService,ConfirmService, AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TimingInterceptor,

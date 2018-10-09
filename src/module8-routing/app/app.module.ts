@@ -5,9 +5,10 @@ import {MoviesModule} from "./movies/movies.module";
 import {CoreModule} from "./core/core.module";
 import {LoggerServiceProvider} from "./core/logger.service.provider";
 import {AppRoutingModule} from "./app-routing.module";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations:[AppComponent],
+  declarations:[AppComponent, LoginComponent],
   imports: [BrowserModule, CoreModule, MoviesModule,AppRoutingModule],
   bootstrap: [AppComponent],
   providers:[LoggerServiceProvider]
