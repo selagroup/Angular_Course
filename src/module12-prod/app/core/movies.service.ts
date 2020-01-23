@@ -31,9 +31,9 @@ export class MoviesService {
       .catch(this.handleError);
   }
 
-  saveMovie(movie): Observable<Movie>{
+  saveMovie(movie: Movie): Observable<Movie>{
     let url = `${this.moviesAPIUrl}/${movie.id}`;
-    return this.http.put(url,movie,{headers:this.headers})
+    return this.http.put<Movie>(url,movie,{headers:this.headers})
       .catch(this.handleError);
   }
 

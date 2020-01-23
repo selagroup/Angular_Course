@@ -38,7 +38,7 @@ export class MovieNewReactiveComponent implements OnInit {
     // this.newMovie = new Movie();
   }
   checkFormStatus() {
-    console.log(this.newMovieForm);
+    console.log(this.newMovieForm.status);
   }
   onSubmit() {
     this.moviesService.create(this.newMovieForm.value)

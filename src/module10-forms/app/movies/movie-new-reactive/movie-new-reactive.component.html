@@ -30,7 +30,7 @@
   </label>
 </div>
 <div>
-  <button type="submit" >Add Movie</button>
+  <button type="submit" [disabled]="newMovieForm.status === 'INVALID'">Add Movie</button>
 </div>
 <button (click)="checkFormStatus()" type="button" >check form status</button>
 </form>

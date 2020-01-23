@@ -13,10 +13,10 @@ export class MovieNewComponent implements OnInit {
 
   newMovie: Movie;
 
-  @ViewChild('posterRef')
+  @ViewChild('posterRef', {static: true})
   private preview: ElementRef;
 
-  @ViewChild(ModalDialogComponent)
+  @ViewChild(ModalDialogComponent, {static: true})
   private modal: ModalDialogComponent;
 
   @Output()

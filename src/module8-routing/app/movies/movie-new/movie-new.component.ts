@@ -24,7 +24,7 @@ export class MovieNewComponent implements OnInit {
 
       this.moviesService.create(this.newMovie)
         .subscribe(
-          movie => this.router.navigate(['movies', 'list']))
+          movie => this.router.navigate(['movies', movie.id]))
 
   }
 }
